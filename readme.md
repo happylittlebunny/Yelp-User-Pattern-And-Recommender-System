@@ -52,5 +52,3 @@ spark-submit server.py
 * Web frontend: D3.js, DC.js, crossfilter.js, Leaflet.js, keen.js, bootstrap v4
 * Data Storage: MongoDB
 * Other tools/technologies: Gephi for user-business relationship graph, yelp GraphQL for addition data query
-
-# Yelp-User-Pattern-And-Recommender-System
