@@ -1,0 +1,10 @@
+Application Set up:
+
+1. Install Mongo DB server locally
+2. Git clone repository
+3. Under the repository folder, start mongo db with data 
+4. mongod --dbpath data/db
+5. CD to yelpserver folder
+6. Start web server by using command: 
+7. spark-submit server.py
+8. In browser, type 0.0.0.0/5000

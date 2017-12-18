@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yelp User Pattern Analysis and Recommender System</title>
+    <link rel="stylesheet" href="/static/lib/css/dc.css">
+    <link rel="stylesheet" href="/static/lib/css/leaflet.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="/static/lib/css/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="/static/lib/css//bootstrap.min.css">
+    <link rel="stylesheet" href="/static/lib/css/keen-dashboards.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+    
+</head>
+<body class="keen-dashboard">
+<style>
+#radar-chart1 {
+    margin-left: 60px;
+    margin-top: 10px;
+    }	
+#radar-chart2 {
+margin-top: 60px;
+}	
+
+</style>
+
+<nav class="navbar navbar-toggleable-md navbar-light fixed-top" style="background-color: #c41200;">
+        <a class="navbar-brand" href="#">Yelp User Pattern Analysis</a>   
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                    <a class="nav-link" href="/"+ style="color: #ffffff;">Home</a>
+            </li>                  
+            <li class="nav-item active">
+                <a class="nav-link" href="/recommendersystem/{{user_id}}"+ style="color: #ffffff;">Recommender System</a>
+            </li>
+            </ul>
+        </div>
+ </nav>
+
+<div class="container-fluid">
+    <p hidden id="uid">{{user_id}}</p>
+<div class="row">
+<table class="table">
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Yelp Since</th>
+                <th>Elite Year</th>
+                <th>Review Count</th>
+                <th>Average Stars</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{user_name}}</td>
+                <td>{{user_ys}}</td>
+                <td>{{user_elite}}</td>
+                <td>{{user_rc}}</td>
+                <td>{{user_as}}</td>
+            </tr>
+        </tbody>
+</table>    
+</div>
+<div class="row">
+    <div class="col-sm-8">
+        <div class="chart-wrapper">
+            <div class="chart-title">
+                Map                 
+            </div>
+                <div class="chart-stage">
+                <div id="map" style="width: 850px; height: 580px"></div>
+                <div class="dc-count">
+                        <span class="filter-count"></span> selected out of <span class="total-count"></span> records
+                </div>  
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="row">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                    Categories <a class="reset" href="javascript:categoryChart.filterAll();dc.redrawAll();">reset</a>
+                </div>
+                <div class="chart-stage">
+                    <div id="category-chart">                     
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                    Rating    <a class="reset" href="javascript:rateChart.filterAll();dc.redrawAll();">reset</a>                
+                </div>
+                <div class="chart-stage">
+                    <div id="rate-chart">                                                                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+        <div class="col-sm-6">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                        Compliments received by the user                
+                </div>
+                <div class="chart-stage">
+                    <div id="radar-chart1"></div>                                                                        
+                </div>  
+            </div>         
+        </div>
+       <div class="col-sm-4">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                        Votes sent by the user              
+                </div>
+                <div class="chart-stage">
+                    <div id="radar-chart2"></div>                                                                         
+                </div>    
+            </div>         
+       </div>
+</div>
+<div class="row">
+        <div class="col-sm-6">
+                <div class="chart-wrapper">
+                <div class="chart-title">
+                        High Frequency Words in the User's Good Review                
+                </div>
+                <div class="chart-stage">
+                    <div id="wordcloud-good"></div>                                                                        
+                </div>  
+                </div>         
+        </div>
+       <div class="col-sm-6">
+            <div class="chart-wrapper">
+            <div class="chart-title">
+                    High Frequency Words in the User's Bad Review                
+            </div>
+            <div class="chart-stage">
+                <div id="wordcloud-bad"></div>                                                                        
+            </div>     
+            </div>          
+       </div>    
+</div>
+
+<!--
+<p hidden id="uid">{{user_id}}</p> 
+
+<div id="rate-chart">user rating</div>
+<div id="category-chart">categories</div>
+<div id="map" style="width:800px; height:800px"></div>
+-->
+</div>
+
+<script src="/static/lib/js/crossfilter.js"></script>
+<script src="/static/lib/js/d3.js"></script>
+<script src="/static/lib/js/dc.js"></script>
+<script src="/static/lib/js/d3-queue.js"></script>
+<script src="/static/lib/js/leaflet.js"></script>
+<script src="/static/lib/js/leaflet.awesome-markers.js"></script>
+<script src="/static/lib/js/underscore-min.js"></script>
+<script src="/static/lib/js/keen.js"></script>
+<script src="/static/lib/js/RadarChart.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="/static/lib/js/d3.layout.cloud.js"></script>
+<script src="/static/lib/js/d3.wordcloud.js"></script>
+<script src='/static/js/vs.js' type='text/javascript'></script>
+</body>
+</html>

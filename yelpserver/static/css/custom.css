@@ -1,0 +1,8 @@
+.dc-chart g.row text {
+    fill: black;
+}
+
+
+.chart-title.reset{
+    text-align: right;
+}
