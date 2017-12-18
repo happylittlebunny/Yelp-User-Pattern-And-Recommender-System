@@ -1,0 +1,3 @@
+*.js linguist-language=python,javascript
+*.css linguist-language=python,javascript  
+*.html linguist-language=python,javascript
